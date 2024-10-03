@@ -3,7 +3,10 @@ import pandas as pd
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-
+pd.set_option('display.max_rows', None)    # Show all rows
+pd.set_option('display.max_columns', None) # Show all columns
+pd.set_option('display.width', None)       # Ensure proper line wrapping
+pd.set_option('display.max_colwidth', None) # No column width truncation
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
@@ -35,7 +38,7 @@ if __name__ == '__main__':
     for key, file in files.items():
         # Read each sheet in the Excel file
         dfs[key] = pd.read_excel(file, sheet_name=None)
-    print(dfs)
+    print((dfs['motor_coaches_buses']['Sheet 2']))
     # You can access individual DataFrames like this:
     # dfs['motor_coaches_buses']['Sheet 1'] for example to access the 'Sheet 1' from the motor_coaches_buses dataset
 
