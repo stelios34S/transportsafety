@@ -59,4 +59,4 @@ df_with_total = pd.concat([final_df, total_row], ignore_index=True)
 
 # Optional: Print the new DataFrame with the total row
 print(df_with_total)
-df_with_total.to_csv('Data/clean_csv/fatality_road_type.csv', index=False)
+df_with_total.to_csv('Data/clean_csv/road_performance_type.csv', index=False)
