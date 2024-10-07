@@ -15,7 +15,6 @@ def print_hi(name):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
 
-
     # File paths for all datasets
     files = {
         'motor_coaches_buses': 'Data/numbers_of_cars_and_coaches/Motor coaches, buses and trolley buses by age.xlsx',
@@ -38,8 +37,21 @@ if __name__ == '__main__':
     for key, file in files.items():
         # Read each sheet in the Excel file
         dfs[key] = pd.read_excel(file, sheet_name=None)
-    print((dfs['motor_coaches_buses']['Sheet 2']))
-    # You can access individual DataFrames like this:
+    #print((dfs['motor_coaches_buses']['Sheet 2']))
+    print(dfs['persons_killed_by_type_road']['Sheet 1'])
+    total_type_road = dfs['persons_killed_by_type_road']['Sheet 1']
+    selected_row = total_type_road.iloc[41]
+    selected_row = selected_row.dropna()
+    print(selected_row)
+    print(selected_row[1])
+    idx = list(range(2000,2023))
+    idx.insert(0, 'Country')
+    print(idx)
+    # Create a new DataFrame or Series with the cleaned data and assign the years as column labels
+    cleaned_row_with_years = pd.Series(data=selected_row.values, index=idx)
+
+    # Print the row with the new labels
+    print(cleaned_row_with_years)
+
     # dfs['motor_coaches_buses']['Sheet 1'] for example to access the 'Sheet 1' from the motor_coaches_buses dataset
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
